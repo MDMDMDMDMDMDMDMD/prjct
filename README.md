@@ -39,7 +39,7 @@
 
 3. **Запустите проект с помощью Docker Compose:**
    ```bash
-   docker-compose up --build -d
+   docker-compose up --build
    ```
    Сервис будет доступен по адресу `http://localhost:8000`.
 
