@@ -10,6 +10,7 @@ order_furniture = Table(
     Column("furniture_id", Integer, ForeignKey("furniture.id"))
 )
 
+
 class Order(Base):
     __tablename__ = "orders"
 

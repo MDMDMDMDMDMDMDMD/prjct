@@ -8,3 +8,4 @@ postgres_data/
 .vscode/
 .idea/
 *.log
+.idea/

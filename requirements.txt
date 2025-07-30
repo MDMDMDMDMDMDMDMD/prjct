@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+sqlalchemy
+asyncpg==0.29.0
+alembic==1.13.1
+psycopg2-binary
+pydantic[email]==2.11.7
+pydantic-settings
+python-dotenv
