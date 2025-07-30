@@ -9,3 +9,4 @@ postgres_data/
 .idea/
 *.log
 .idea/
+logs/
