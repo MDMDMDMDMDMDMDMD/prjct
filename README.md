@@ -23,17 +23,18 @@
 2. **Создайте файл `.env`** в корневой директории проекта и заполните его по примеру ниже. Эти переменные будут использоваться как контейнером с приложением, так и контейнером с базой данных.
 
    ```env
-   # Настройки для подключения к БД из приложения
-   DATABASE_URL=postgresql+asyncpg://user:password@db:5432/mydatabase
+    # Настройки для подключения к БД из приложения
+    DATABASE_URL=postgresql://postgres:postgres@db:5432/furniture_db
+    
+    # Настройки для инициализации самой БД
+    POSTGRES_DB=furniture_db
+    POSTGRES_USER=postgres
+    POSTGRES_PASSWORD=postgres
+    
+    # Настройки для отправки почты (опционально)
+    SMTP_HOST=mailhog
+    SMTP_PORT=1025
 
-   # Настройки для инициализации самой БД
-   POSTGRES_DB=mydatabase
-   POSTGRES_USER=user
-   POSTGRES_PASSWORD=password
-   
-   # Настройки для отправки почты (опционально)
-   SMTP_HOST=mailhog
-   SMTP_PORT=1025
    ```
 
 3. **Запустите проект с помощью Docker Compose:**
