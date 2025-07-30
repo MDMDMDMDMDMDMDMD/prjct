@@ -1,3 +1,5 @@
+version: "3.9"
+
 services:
   db:
     image: postgres:15
@@ -25,8 +27,20 @@ services:
     depends_on:
       db:
         condition: service_healthy
+      mailhog:
+        condition: service_started
+    environment:
+      SMTP_HOST: mailhog
+      SMTP_PORT: 1025
     command: >
       uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  mailhog:
+    image: mailhog/mailhog
+    restart: always
+    ports:
+      - "8025:8025"  # веб-интерфейс
+      - "1025:1025"  # SMTP
 
 volumes:
   postgres_data:

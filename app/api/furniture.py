@@ -17,7 +17,7 @@ def get_db():
 
 @router.get("/", response_model=list[schemas.FurnitureOut])
 def list_furniture(
-    category: str | None = Query(default=None),  # Фильтрация по категории
+    category: str | None = Query(default=None),
     db: Session = Depends(get_db)
 ):
     if category:
