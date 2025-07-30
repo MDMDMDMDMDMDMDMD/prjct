@@ -1,10 +1,8 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.orm import Session
 from app.schemas import furniture as schemas
 from app.crud import furniture as crud
 from app.core.database import SessionLocal
-from fastapi import status
-
 
 router = APIRouter()
 
@@ -18,7 +16,12 @@ def get_db():
 
 
 @router.get("/", response_model=list[schemas.FurnitureOut])
-def list_furniture(db: Session = Depends(get_db)):
+def list_furniture(
+    category: str | None = Query(default=None),  # Фильтрация по категории
+    db: Session = Depends(get_db)
+):
+    if category:
+        return crud.get_furniture_by_category(db, category)
     return crud.get_all_furniture(db)
 
 
